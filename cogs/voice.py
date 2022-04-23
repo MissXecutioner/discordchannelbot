@@ -200,7 +200,7 @@ class voice(commands.Cog):
             channelID = voice[0]
             channel = self.bot.get_channel(channelID)
             await channel.set_permissions(member, connect=True)
-            await ctx.channel.send(f'{member.name} adli kisinin odaya girisine izin verildi. Owner:[{ctx.author.mention}] ✅')
+            await ctx.channel.send(f'{member.name} adli kisinin odaya girisine izin verildi. Owner:**{ctx.author.mention}** ✅')
         conn.commit()
         conn.close()
 
@@ -224,7 +224,7 @@ class voice(commands.Cog):
                     channel2 = self.bot.get_channel(voice[0])
                     await member.move_to(channel2)
             await channel.set_permissions(member, connect=False,read_messages=True)
-            await ctx.channel.send(f'{member.name} adli kisinin odaya girisi yasaklandi. Owner:[{ctx.author.mention}] ❌')
+            await ctx.channel.send(f'{member.name} adli kisinin odaya girisi yasaklandi. Owner:**{ctx.author.mention}** ❌')
         conn.commit()
         conn.close()
 
@@ -243,7 +243,7 @@ class voice(commands.Cog):
             channelID = voice[0]
             channel = self.bot.get_channel(channelID)
             await channel.edit(user_limit = limit)
-            await ctx.channel.send(f'{ctx.author.mention} Channel giris limiti '+ '{} olarak ayarlandi.!'.format(limit))
+            await ctx.channel.send(f'{ctx.author.mention} Channel giris limiti **'+ '{}** olarak ayarlandi!'.format(limit))
             c.execute("SELECT channelName FROM userSettings WHERE userID = ?", (id,))
             voice=c.fetchone()
             if voice is None:
@@ -267,7 +267,7 @@ class voice(commands.Cog):
             channelID = voice[0]
             channel = self.bot.get_channel(channelID)
             await channel.edit(name = name)
-            await ctx.channel.send(f'{ctx.author.mention} Channel ismini '+ '{} olarak degistirdin.!'.format(name))
+            await ctx.channel.send(f'{ctx.author.mention} Channel ismini **'+ '{}** olarak degistirdin.!'.format(name))
             c.execute("SELECT channelName FROM userSettings WHERE userID = ?", (id,))
             voice=c.fetchone()
             if voice is None:

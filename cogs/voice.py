@@ -200,7 +200,7 @@ class voice(commands.Cog):
             channelID = voice[0]
             channel = self.bot.get_channel(channelID)
             await channel.set_permissions(member, connect=True)
-            await ctx.channel.send(f'{member.name} adli kisinin odaya girisine izin verildi. Owner:**{ctx.author.mention}** ✅')
+            await ctx.channel.send(f'**{member.name}** adli kisinin odaya girisine izin verildi. Owner:[{ctx.author.mention}] ✅')
         conn.commit()
         conn.close()
 
@@ -224,7 +224,7 @@ class voice(commands.Cog):
                     channel2 = self.bot.get_channel(voice[0])
                     await member.move_to(channel2)
             await channel.set_permissions(member, connect=False,read_messages=True)
-            await ctx.channel.send(f'{member.name} adli kisinin odaya girisi yasaklandi. Owner:**{ctx.author.mention}** ❌')
+            await ctx.channel.send(f'**{member.name}** adli kisinin odaya girisi yasaklandi. Owner:[{ctx.author.mention}] ❌')
         conn.commit()
         conn.close()
 

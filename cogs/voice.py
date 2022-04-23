@@ -243,7 +243,7 @@ class voice(commands.Cog):
             channelID = voice[0]
             channel = self.bot.get_channel(channelID)
             await channel.edit(user_limit = limit)
-            await ctx.channel.send(f'{ctx.author.mention} Channel giris limiti olarak ayarlandi. >> '+ '{}!'.format(limit))
+            await ctx.channel.send(f'{ctx.author.mention} Channel giris limiti '+ '{} olarak ayarlandi.!'.format(limit))
             c.execute("SELECT channelName FROM userSettings WHERE userID = ?", (id,))
             voice=c.fetchone()
             if voice is None:
@@ -267,7 +267,7 @@ class voice(commands.Cog):
             channelID = voice[0]
             channel = self.bot.get_channel(channelID)
             await channel.edit(name = name)
-            await ctx.channel.send(f'{ctx.author.mention} Channel ismini olarak degistirdin. >> '+ '{}!'.format(name))
+            await ctx.channel.send(f'{ctx.author.mention} Channel ismini '+ '{} olarak degistirdin.!'.format(name))
             c.execute("SELECT channelName FROM userSettings WHERE userID = ?", (id,))
             voice=c.fetchone()
             if voice is None:

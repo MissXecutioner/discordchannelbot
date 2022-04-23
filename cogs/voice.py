@@ -28,8 +28,8 @@ class voice(commands.Cog):
                     if cooldown is None:
                         pass
                     else:
-                        await member.send("Çok hızlısın biraz bekle bakalım, 15 saniyede bir özel oda açabilirsin.")
-                        await asyncio.sleep(15)
+                        await member.send("Çok hızlısın biraz bekle bakalım, 3 saniyede bir özel oda açabilirsin.")
+                        await asyncio.sleep(3)
                     c.execute("SELECT voiceCategoryID FROM guild WHERE guildID = ?", (guildID,))
                     voice=c.fetchone()
                     c.execute("SELECT channelName, channelLimit FROM userSettings WHERE userID = ?", (member.id,))
